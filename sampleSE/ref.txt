@@ -1,0 +1,10 @@
+input=D:\visual studio 2015\Projects\sampleSE\sampleSE\marketdata_for_interview.csv
+output=D:\visual studio 2015\Projects\sampleSE\sampleSE\output.crd
+timestamp=1
+ticker=2
+bid=3
+bidsize=4
+ask=5
+asksize=6
+volume=7
+delimiter=,
