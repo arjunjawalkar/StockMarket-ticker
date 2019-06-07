@@ -15,4 +15,9 @@ public:
 	double sum_numerator;
 	double sum_denominator;
 	double div_sumnr_sumdr;
+	Output() = default;
+	Output(const Output &obj)
+	{
+		cout << "Output copy ctr" << endl;
+	}
 };

@@ -3,7 +3,8 @@ Input::Input()
 {
 }
 //method to parse the input line by line and stores the required data in a map<ticker,Output Object>
-map<string,Output>& Input::ParseInput(const Reference &ref)
+//map<string,Output>& Input::ParseInput(const Reference &ref)
+void Input::ParseInput(const Reference &ref, map<string, Output> &out)
 {
 		ifstream file(ref.input);
 		string line;
@@ -30,25 +31,25 @@ map<string,Output>& Input::ParseInput(const Reference &ref)
 				//for repetetive ticker
 				if (out_itr != out.end())
 				{
-					Output temp = out_itr->second;
+					//Output temp = out_itr->second;
 					//Below if condition is to update the min(Ask-Bid) value
-					if (temp.min > out_obj.diff_ask_bid)
+					if (out_itr->second.min > out_obj.diff_ask_bid)
 						out_obj.min = out_obj.diff_ask_bid;
 					else
-						out_obj.min = temp.min;
+						out_obj.min = out_itr->second.min;
 					//Below if condition is to update the max(Ask-Bid) value
-					if (temp.max < out_obj.diff_ask_bid)
+					if (out_itr->second.max < out_obj.diff_ask_bid)
 						out_obj.max = out_obj.diff_ask_bid;
 					else
-						out_obj.max = temp.max;
+						out_obj.max = out_itr->second.max;
 					//Below if condition is to update the Maximum timestamp difference value
-					if (temp.max_timestamp < (out_obj.timestamp - temp.timestamp))
-						out_obj.max_timestamp = (out_obj.timestamp - temp.timestamp);
+					if (out_itr->second.max_timestamp < (out_obj.timestamp - out_itr->second.timestamp))
+						out_obj.max_timestamp = (out_obj.timestamp - out_itr->second.timestamp);
 					else
-						out_obj.max_timestamp = temp.max_timestamp;
+						out_obj.max_timestamp = out_itr->second.max_timestamp;
 
 					//update the sum of volumes for each timestamp
-					out_obj.sum_volume = out_obj.volume + temp.sum_volume;
+					out_obj.sum_volume = out_obj.volume + out_itr->second.sum_volume;
 					
 				}
 				else
@@ -68,7 +69,7 @@ map<string,Output>& Input::ParseInput(const Reference &ref)
 
 		}
 		file.close();
-		return out;
+		//return out;
 	
 }
 	

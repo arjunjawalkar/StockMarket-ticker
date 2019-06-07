@@ -16,5 +16,9 @@ public:
 	char delimiter;
 	Reference(string filename);
 	Reference() = default;
+	Reference(const Reference &obj)
+	{
+		cout << "reference cpy ctr" << endl;
+	}
 	
 };

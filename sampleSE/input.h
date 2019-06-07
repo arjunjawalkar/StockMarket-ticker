@@ -3,9 +3,14 @@
 class Input
 {
 	
-	map<string, Output> out;
+	//map<string, Output> out;
 	//Reference ref_obj;
 public:
 	Input();
-	map<string, Output>& ParseInput(const Reference &ref);
+	Input(const Input &obj)
+	{
+		cout << "Input copy ctr" << endl;
+	}
+	//map<string, Output>& ParseInput(const Reference &ref);
+	void ParseInput(const Reference &ref, map<string, Output> &out);
 };

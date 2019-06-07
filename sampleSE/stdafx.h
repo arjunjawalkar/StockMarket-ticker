@@ -16,7 +16,6 @@
 #include <sstream>
 #include <map>
 #include "reference.h"
-
 #include "output.h"
 #include "input.h"
 #include "utility.h"
